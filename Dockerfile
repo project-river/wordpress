@@ -8,6 +8,7 @@ RUN apt-get update && \
   chown -R www-data:www-data /var/lib/nginx
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 COPY default.conf /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/sites-enabled/default
 WORKDIR /etc/nginx
 RUN cd /var/www
 #RUN apt-get install wget -y
