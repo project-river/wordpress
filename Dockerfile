@@ -2,7 +2,7 @@ FROM debian:jessie
 RUN apt-get update
 RUN apt-get -y install  php5 php5-mysql
 RUN apt-get update && \
-  apt-get install -y nginx && \
+  apt-get install -y nginx wget && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
@@ -10,7 +10,7 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 COPY default.conf /etc/nginx/conf.d/default.conf
 WORKDIR /etc/nginx
 RUN cd /var/www
-RUN apt-get install wget -y
+#RUN apt-get install wget -y
 RUN wget http://wordpress.org/latest.tar.gz
 RUN tar -xzvf latest.tar.gz -C /var/www/
 RUN cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
