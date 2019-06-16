@@ -9,7 +9,7 @@ RUN cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
 RUN sed -i 's/database_name_here/wordpress/' /var/www/wordpress/wp-config.php
 RUN sed -i 's/username_here/wordpress_user/' /var/www/wordpress/wp-config.php
 RUN sed -i 's/password_here/dev@admin123/' /var/www/wordpress/wp-config.php
-RUN sed -i &amp;quot;s/localhost/10.0.2.246/g&amp;quot; wordpress/wp-config.php &amp;lt;em&amp;gt;//***&amp;lt;/em&amp;gt;
+RUN sed -i /localhost/10.0.2.246/g wordpress/wp-config.php
 RUN cd /etc/apache2/sites-enabled/
 RUN sed -i 's/\/var\/www\/html/\/var\/www\/wordpress/' /etc/apache2/sites-enabled/000-default.conf
-CMD [&amp;quot;apache2ctl&amp;quot; ,&amp;quot; -DFOREGROUND&amp;quot;]
+CMD [apache2ctl -DFOREGROUND]
