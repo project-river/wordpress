@@ -23,4 +23,5 @@ RUN sed -i 's/localhost/10.0.2.246/g' /var/www/wordpress/wp-config.php
 #CMD [apache2ctl -DFOREGROUND]
 #COPY run.sh .
 #RUN chmod 0500 run.sh
-CMD [ nginx ]
+CMD [ "nginx" ]
+EXPOSE 80
