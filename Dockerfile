@@ -13,4 +13,6 @@ RUN sed -i 's/localhost/10.0.2.246/g' /var/www/wordpress/wp-config.php
 RUN cd /etc/apache2/sites-enabled/
 RUN sed -i 's/\/var\/www\/html/\/var\/www\/wordpress/' /etc/apache2/sites-enabled/000-default.conf
 #CMD [apache2ctl -DFOREGROUND]
+COPY run.sh .
+RUN chmod 0500 run.sh
 CMD [ "sh", "run.sh" ]
