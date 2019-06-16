@@ -1,0 +1,40 @@
+{
+    "family": "wordpress",
+    "networkMode": "bridge",
+    "containerDefinitions": [
+        {
+            "name": "wordpress",
+            "image": "114688015612.dkr.ecr.${REGION}.amazonaws.com/riverz/wordpress:${BUILD_NUMBER}",
+            "memory": 512,
+            "portMappings": [
+                {
+                    "hostPort": 8101,
+                    "containerPort": 80
+                }
+            ],
+
+
+
+
+
+    "mountPoints": [
+        {
+          "readOnly": false,
+          "containerPath": "/var/log/",
+          "sourceVolume": "Logs"
+        }
+      ]
+      }
+      ],
+
+    "volumes": [
+    {
+      "name": "Logs",
+      "host": {
+        "sourcePath": "/efs/log/fluent/wordpress/_data/"
+      }
+    }
+  ]
+
+
+}
