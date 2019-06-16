@@ -1,2 +1,2 @@
 !#/bin/bash
-/etc/init.d/httpd restart
+/etc/init.d/apache2 restart
