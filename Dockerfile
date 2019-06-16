@@ -1,6 +1,6 @@
 FROM debian:jessie
 RUN apt-get update
-RUN apt-get -y install  php5 php5-mysql
+RUN apt-get -y install  php5 php5-mysql php5-fpm
 RUN apt-get update && \
   apt-get install -y nginx wget && \
   rm -rf /var/lib/apt/lists/* && \
